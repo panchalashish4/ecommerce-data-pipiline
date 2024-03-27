@@ -8,7 +8,7 @@ start_date = date(2024, 3, 23)  # Adjust start date
 end_date = date.today()
 
 
-def lambda_handler(event=None, context=None):
+def lambda_handler(event, context):
     for current_date in range((end_date - start_date).days + 1):
         # Generate Date
         current_date = start_date + timedelta(days=current_date)
@@ -20,6 +20,4 @@ def lambda_handler(event=None, context=None):
         'statusCode': 200,
         'body': json.dumps(f'Ecommerce Data Generated.')
     }
-
-lambda_handler()
 
